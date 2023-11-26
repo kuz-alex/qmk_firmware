@@ -12,6 +12,16 @@
         "cols": ["F6", "F7", "B1", "B3", "B2", "B6"],
         "rows": ["C6", "D7", "E6", "B4", "B5"]
     },
+    "features": {
+        "rgblight": true
+    },
+    "rgblight": {
+        "led_count": 72,
+        "split_count": [36, 36]
+    },
+    "ws2812": {
+        "pin": "D3"
+    },
     "diode_direction": "COL2ROW",
     "encoder": {
         "rotary": [
