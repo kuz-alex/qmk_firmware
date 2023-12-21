@@ -21,30 +21,30 @@
 see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options. */
 
-#define DRIVER_LED_TOTAL RGBLED_NUM
-#define RGB_MATRIX_LED_COUNT RGBLED_NUM
-#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120
-#define RGB_MATRIX_HUE_STEP 8
-#define RGB_MATRIX_SAT_STEP 8
-#define RGB_MATRIX_VAL_STEP 8
-#define RGB_MATRIX_SPD_STEP 10
-#define RGB_MATRIX_SPLIT {36,36}
-#define SPLIT_TRANSPORT_MIRROR
-
-// reacts to keypresses
-// Light up keys when pressed, then fade to unlit.
-#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#define RGBLIGHT_EFFECT_STATIC_GRADIENT
-#define RGBLIGHT_EFFECT_RGB_TEST
-// Set default RGB mode
-#define RGB_MATRIX_STARTUP_MODE RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-// Set default hue
-#define RGB_MATRIX_STARTUP_HUE 200
-// Set default saturation
-#define RGB_MATRIX_STARTUP_SAT 255
-// Set default brightness
-/// #define RGB_MATRIX_STARTUP_VAL RGB_MATRIX_MAXIMUM_BRIGHTNESS
-// Set default animation speed
-#define RGB_MATRIX_STARTUP_SPD 35
-// Turn off RGB when USB is suspended
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
+#if defined(KEYBOARD_sofle_rev1)
+// Add RGB underglow and top facing lighting
+#    define WS2812_DI_PIN D3
+#    define RGBLED_NUM 72
+#    define RGBLED_SPLIT \
+        { 36, 36 }
+#    ifdef RGB_MATRIX_ENABLE
+#        define RGB_MATRIX_LED_COUNT RGBLED_NUM
+#        define RGB_MATRIX_SPLIT RGBLED_SPLIT
+#        define SPLIT_TRANSPORT_MIRROR
+#    else
+#        define RGBLIGHT_EFFECT_BREATHING
+#        define RGBLIGHT_EFFECT_RAINBOW_MOOD
+#        define RGBLIGHT_EFFECT_RAINBOW_SWIRL
+#        define RGBLIGHT_EFFECT_SNAKE
+#        define RGBLIGHT_EFFECT_KNIGHT
+#        define RGBLIGHT_EFFECT_CHRISTMAS
+#        define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#        define RGBLIGHT_EFFECT_RGB_TEST
+#        define RGBLIGHT_EFFECT_ALTERNATING
+#        define RGBLIGHT_EFFECT_TWINKLE
+#        define RGBLIGHT_LIMIT_VAL 120
+#        define RGBLIGHT_HUE_STEP 10
+#        define RGBLIGHT_SAT_STEP 17
+#        define RGBLIGHT_VAL_STEP 17
+#    endif
+#endif

@@ -41,7 +41,9 @@ static void print_status_narrow(void) {
             oled_write_P(PSTR("Mod\n"), false);
             break;
     }
-    oled_write_P(PSTR("\n\n"), false); // Print current layer oled_write_ln_P(PSTR("LAYER"), false);
+    oled_write_P(PSTR("\n\n"), false);
+    // Print current layer
+    oled_write_ln_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
         case 0:
             oled_write_P(PSTR("Base\n"), false);
@@ -71,7 +73,8 @@ bool oled_task_user(void) {
     if (is_keyboard_master()) {
         print_status_narrow();
     } else {
-        render_logo(); }
+        render_logo();
+    }
     return false;
 }
 
