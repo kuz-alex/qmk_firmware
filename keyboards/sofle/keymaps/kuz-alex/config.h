@@ -22,12 +22,7 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options. */
 
 #define WS2812_DI_PIN D3
-#define RGBLED_NUM 72
-#define RGBLED_SPLIT \
-    { 36, 36 }
 
-#define RGB_MATRIX_LED_COUNT RGBLED_NUM
-#define RGB_MATRIX_SPLIT RGBLED_SPLIT
 #define SPLIT_TRANSPORT_MIRROR
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 130
 #define RGB_MATRIX_DEFAULT_HUE 170
